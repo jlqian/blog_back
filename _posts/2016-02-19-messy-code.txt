@@ -8,11 +8,11 @@ JavaWEB项目中，下载文件时，不同的浏览器可能会出现文件名�
 以Tomcat为例服务器为例:
 
 默认情况下Tomcat的编码集为ISO-8859-1，这意味着，地址栏的请求将会被ISO-8859-1字符集编码，然后再解码，才是我们所得到的内容。这就是为什么GET请求中的中文，我们得到的是乱码。可以全部改为POST请求，利用Spring的CharacterEncodingFilter拦截器设置编码字符集。或者是在Tomcat的server.xml中修改配置：
-{% highlight xml %}
+{% highlight mxml %}
 <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
 {% endhighlight %}
 修改为：
-{% highlight xml %}
+{% highlight mxml %}
 <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443" URIEncoding="UTF-8" />
 {% endhighlight %}
 对于下载文件，其文件名为中文时，出现乱码的原因很多，一般情况下，每个浏览器解析的方式不一样，需要考虑兼容性的问题：
