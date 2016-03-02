@@ -1,0 +1,36 @@
+---
+layout: post
+title:  "解决兼容各种浏览器下载文件名称乱码问题"
+date:   2016-02-19 17:51:46 +0800
+categories: jekyll update
+---
+JavaWEB项目中，下载文件时，不同的浏览器可能会出现文件名称乱码的问题，有些干脆直接使用非中文字符作为文件名称（如：时间戳），其实事情解决方式很简单，无非是编码的问题，除非操作系统不支持中文...
+以Tomcat为例服务器为例:
+
+默认情况下Tomcat的编码集为ISO-8859-1，这意味着，地址栏的请求将会被ISO-8859-1字符集编码，然后再解码，才是我们所得到的内容。这就是为什么GET请求中的中文，我们得到的是乱码。可以全部改为POST请求，利用Spring的CharacterEncodingFilter拦截器设置编码字符集。或者是在Tomcat的server.xml中修改配置：
+{% highlight xml %}
+<Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+{% endhighlight %}
+修改为：
+{% highlight xml %}
+<Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443" URIEncoding="UTF-8" />
+{% endhighlight %}
+对于下载文件，其文件名为中文时，出现乱码的原因很多，一般情况下，每个浏览器解析的方式不一样，需要考虑兼容性的问题：
+
+1.没有修改server.xml文件时，默认的编码集是ISO-8859-1
+
+{% highlight ruby %}
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
+
+
