@@ -14,8 +14,16 @@ mysqldump [options] [db_name [tbl_name ...]]
 
 所以可以使用命令如下：
 {% highlight java %}
-mysqldump -h127.0.0.1 -P3306 -uroot -proot --default-character-setutf8 -Bdatabase -r export_file
+mysqldump -h127.0.0.1 -P3306 -uroot -proot --default-character-set=utf8 -B database -rexport_file
 {% endhighlight %}
+-h                       主机地址
+-P                       MySQL端口
+-u                       用户名
+-p                       密码
+--default-character-set  字符集
+-B                       数据库
+-r                       导出文件
+注意：在-p后紧跟参数 在-B后必须空格 其它都可以
 使用Java调用系统命令：
 {% highlight java %}
 Runtime runtime = Runtime.getRuntime();
