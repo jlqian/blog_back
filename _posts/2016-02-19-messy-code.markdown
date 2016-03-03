@@ -32,11 +32,11 @@ JavaWEB项目中，下载文件时，不同的浏览器可能会出现文件名�
         
     	try 
     	{
-			String downLoadName = new String("你好！".getBytes("GBK"),"ISO-8859-1");
-			response.setHeader("Content-Disposition", "attachment;fileName="+downLoadName);
-			ServletOutputStream outputStream = response.getOutputStream();
-			outputStream.write(new String("中文内容。。。").getBytes("GBK"));
-		} 
+		String downLoadName = new String("你好！".getBytes("GBK"),"ISO-8859-1");
+		response.setHeader("Content-Disposition", "attachment;fileName="+downLoadName);
+		ServletOutputStream outputStream = response.getOutputStream();
+		outputStream.write(new String("中文内容。。。").getBytes("GBK"));
+	} 
     	catch (UnsupportedEncodingException e)
         {
             logger.error("UnsupportedEncodingException错误", e);
@@ -50,7 +50,7 @@ JavaWEB项目中，下载文件时，不同的浏览器可能会出现文件名�
 
 经过测试在IE Chrome Firefox 都能够正常显示，示例代码中的编码字符集不是随意定义的，对于Chrome Firefox 可以随意定义（需要浏览器支持的编码），对于IE,只能够采用GBK,GB2312等中文编码集。
 
-[github][git_hub]
+[github][github]
 
 [github]: https://github.com/jlqian
 
