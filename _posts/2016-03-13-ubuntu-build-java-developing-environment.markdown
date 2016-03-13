@@ -34,7 +34,7 @@ $sudo sh ./jdk-6u45-linux-x64.bin
 {% endhighlight %}
 添加JAVA_HOME的环境变量
 {% highlight c %}
-$vi ~/.profile
+$vim ~/.profile
 {% endhighlight %}
 增加：
 {% highlight c %}
@@ -53,7 +53,7 @@ $sudo tar -zxvf apache-tomcat-7.0.67.tar.gz
 {% endhighlight %}
 添加CATALINA_HOME的环境变量
 {% highlight c %}
-$vi ~/.profile
+$vim ~/.profile
 {% endhighlight %}
 修改：
 {% highlight c %}
@@ -74,7 +74,7 @@ $sudo ln -s mysql-5.7.10-linux-glibc2.5-x86_64/ mysql
 {% endhighlight %}
 添加MYSQL_HOME的环境变量
 {% highlight c %}
-$vi ~/.profile
+$vim ~/.profile
 {% endhighlight %}
 修改：
 {% highlight c %}
@@ -158,7 +158,7 @@ $sudo make install
 {% endhighlight %}
 6.3添加NGINX_HOME的环境变量
 {% highlight c %}
-$vi ~/.profile
+$vim ~/.profile
 {% endhighlight %}
 增加：
 {% highlight c %}
@@ -224,5 +224,8 @@ $sudo cp libflashplayer.so /usr/lib/mozilla/plugins/
 $sudo chmod 755 /usr/lib/mozilla/plugins/libflashplayer.so
 {% endhighlight %}
 
-[github][github]
+[本文中的所有软件均可以在百度网盘下载][baiduyun]
+[附上本人的GitHub地址][github]
+
 [github]: https://github.com/jlqian
+[baiduyun]: http://pan.baidu.com/s/1pKpWv6j
