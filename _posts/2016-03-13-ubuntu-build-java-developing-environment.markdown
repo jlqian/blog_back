@@ -22,10 +22,12 @@ $ps -ef | grep sshd
 {% highlight c %}
 $sudo service ssh start
 {% endhighlight %}
+
 2.安装vim编辑器，vi编辑器有问题
 {% highlight c %}
 $sudo apt-get install vim
 {% endhighlight %}
+
 3.安装jdk，以6u45为例
 {% highlight c %}
 $sudo sh ./jdk-6u45-linux-x64.bin
@@ -44,6 +46,7 @@ PATH=$JAVA_HOME/bin:$PATH
 $source ~/.profile
 {% endhighlight %}
 现在就可以使用Java了，java -version打印java的版本信息
+
 4.安装Tomcat，以Tomcat7为例
 {% highlight c %}
 $sudo tar -zxvf apache-tomcat-7.0.67.tar.gz
@@ -63,6 +66,7 @@ PATH=$JAVA_HOME/bin:$CATALINA_HOME/bin:$PATH
 $source ~/.profile
 {% endhighlight %}
 现在就可以使用Tomcat了
+
 5.安装MySQL,以MySQL5为例
 {% highlight c %}
 $sudo tar -zxvf mysql-5.7.10-linux-glibc2.5-x86_64.tar.gz
@@ -114,11 +118,11 @@ $sudo chown -R root .
 $sudo chown -R mysql data mysql-files
 $sudo bin/mysqld_safe --user=mysql &
 {% endhighlight %}
-5.5加入Mysql服务
+5.6加入Mysql服务
 {% highlight c %}
 $sudo cp support-files/mysql.server /etc/init.d/mysql.server
 {% endhighlight %}
-5.6修改root密码
+5.7修改root密码
 
 使用生成的root密码登录后任何操作都会提示：You must reset your password using ALTER USER statement before executing this statement.
 {% highlight c %}
@@ -136,6 +140,7 @@ mysql> FLUSH PRIVILEGES;
 mysql> exit
 $sudo service mysql.server restart
 {% endhighlight %}
+
 6.安装NGINX
 {% highlight c %}
 $sudo tar -zxvf nginx-1.9.9.tar.gz
@@ -167,6 +172,7 @@ PATH=$JAVA_HOME/bin:$CATALINA_HOME/bin:$MYSQL_HOME/bin:$NGINX_HOME/sbin:$PATH
 {% highlight c %}
 $source ~/.profile
 {% endhighlight %}
+
 7.安装Eclipse
 {% highlight c %}
 $sudo tar -zxvf eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz
@@ -191,6 +197,7 @@ Type=Application
 Categories=GNOME;GTK;Core;Documentation;Utility;
 {% endhighlight %}
 复制一份到桌面是上即可
+
 8.安装Lantern
 {% highlight c %}
 $sudo dpkg -i lantern-installer-beta-64-bit.deb
@@ -200,6 +207,7 @@ $sudo dpkg -i lantern-installer-beta-64-bit.deb
 $cp /usr/share/applications/lantern.desktop ~/Desktop/
 $chmod +x ~/Desktop/lantern.desktop 
 {% endhighlight %}
+
 9.安装搜狗输入法
 {% highlight c %}
 $sudo add-apt-repository ppa:fcitx-team/nightly
@@ -208,13 +216,13 @@ $sudo apt-get install fcitx
 $sudo dpkg -i sogoupinyin_2.0.0.0068_amd64.deb 
 {% endhighlight %}
 打开Language Support提示没有安装完成，直接Install就行了，如果没有sogou拼音，打开Input Method Configuration-->Add Input Method-->Only Show Current Language 去掉，就会显示sogoupinyin，添加就可以了。
+
 10.安装adobe flash player
 {% highlight c %}
 $sudo tar -zxvf install_flash_player_11_linux.x86_64.tar.gz 
 $sudo cp libflashplayer.so /usr/lib/mozilla/plugins/
 $sudo chmod 755 /usr/lib/mozilla/plugins/libflashplayer.so
 {% endhighlight %}
-
 
 [github][github]
 [github]: https://github.com/jlqian
