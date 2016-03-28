@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Chrome Run Android Apk"
-date:   2016-03-18 16:41:15 +0800
+date:   2016-03-28 16:41:15 +0800
 categories: jekyll update
 ---
 当我们在Linux下时，想使用各种window下可以使用的软件，可以使用wine，但是兼容性不是太好，Linux下能够运行Android程序，那是最好不过了。
@@ -37,8 +37,10 @@ categories: jekyll update
 
 将转换的插件安装到chrome浏览器，就可以使用App了
 
+[百度网盘][百度网盘]
 [github][github]
 
+[百度网盘]: http://pan.baidu.com/s/1o8KPRC2
 [github]: https://github.com/jlqian
 
 
