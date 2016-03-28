@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ubuntu修复grub2引导"
+title:  "Chrome Run Android Apk"
 date:   2016-03-18 16:41:15 +0800
 categories: jekyll update
 ---
