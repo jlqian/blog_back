@@ -8,6 +8,8 @@ categories: jekyll update
 
 目前apk文件能够通过编译成crx文件，运行在chrome中，尽管效果不是太好，但是总比没有好……
 
+0.开启Chrome浏览器的Native Client，具体方式为：浏览器打开chrome://flags/，找到Native Client Mac, Windows, Linux, Chrome OS, Android，启用即可
+
 1.下载安装ARChon
 你可以在<a href="http://archon-runtime.github.io/">http://archon-runtime.github.io/</a>网站中下载，或者在下面的网盘中下载。目前最新的版本为：2.1.0 Beta (ARC 41.4410.238.0)
 
