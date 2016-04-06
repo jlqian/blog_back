@@ -36,6 +36,8 @@ Reauire IPv4 addressing for this connection to complete true
 {% highlight c %}
 $sudo apt-get purge network-manager
 $sudo apt-get purge network-manager-pptp
+$sudo apt-get purge gir1.2-networkmanager-1.0
+$sudo apt-get purge libproxy1-plugin-networkmanager
 $sudo apt-get automave 
 $sudo apt-get clean
 {% endhighlight %}
@@ -54,9 +56,25 @@ gateway 192.168.1.1
 在/etc/resolve.conf文件中增加DNS
 {% highlight c %}
 nameserver 192.168.1.1
+nameserver 192.168.8.10
 {% endhighlight %}
 
 重启网络服务即可：/etc/init.d/networking restart
+
+但是在电脑重启之后，resolve.conf中的内容又会被清空，这是因为resolveconf服务的原因，有两种方式可以解决
+
+第一种方式：在/etc/network/interfaces文件中增加DNS配置
+{% highlight c %}
+dns-nameservers 192.168.1.1 192.168.8.10
+{% endhighlight %}
+
+第二种方式：修改 resolvconf服务的配置文件: /etc/resolvconf/resolv.conf.d/base
+{% highlight c %}
+nameserver 192.168.1.1
+nameserver 192.168.8.10
+{% endhighlight %}
+
+就可以了
 
 0.2安装GOME2桌面
 
