@@ -130,7 +130,14 @@ clonezilla-live-2.4.5-23-amd64.iso clonezilla-live-20160210-wily-amd64.iso 区�
 
 3、恢复Linux系统
 
+和备份的过程极为相似，在2.12步有不同，如果你选择的U盘中包含了备份镜像，那么将会多出两个可选项：
+
+<img src="/img/Clonezilla-23.jpg" />
+
+选择“还原镜像文件到本机硬盘”或者“还原镜像文件到本机分区”即可
+
 [百度网盘][百度网盘]
+
 [github][github]
 
 [百度网盘]: http://pan.baidu.com/s/1bpDMJwV
