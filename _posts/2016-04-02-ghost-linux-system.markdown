@@ -52,6 +52,82 @@ clonezilla-live-2.4.5-23-amd64.iso clonezilla-live-20160210-wily-amd64.iso 区�
 
 <img src="/img/Clonezilla-3.jpg" />
 
+2.4 Clonezilla使用方式：图形化界面 | 命令行
+
+<img src="/img/Clonezilla-4.jpg" />
+
+2.5 选择备份或者还原
+
+<img src="/img/Clonezilla-5.jpg" />
+
+2.6 选择存储镜像的来源：如果是备份将备份的镜像存在哪里？如果是还原，还原的镜像在什么地方，我们通过U盘进行备份还原，所以选择使用本机的分区
+
+<img src="/img/Clonezilla-6.jpg" />
+
+2.7 系统提示插入U盘，如果没有插入U盘时，现在可插入存储系统的U盘
+
+<img src="/img/Clonezilla-7.jpg" />
+
+2.8 选择备份存储的U盘，本例以虚拟磁盘代替
+
+<img src="/img/Clonezilla-8.jpg" />
+
+2.9 选择存储路径，一般为顶级目录
+
+<img src="/img/Clonezilla-9.jpg" />
+
+2.10 显示分区挂载情况
+
+<img src="/img/Clonezilla-10.jpg" />
+
+2.11 选择模式：专家模式
+
+<img src="/img/Clonezilla-11.jpg" />
+
+2.12 备份分区或者硬盘
+
+<img src="/img/Clonezilla-12.jpg" />
+
+2.13 输入保存的镜像名称，默认即可
+
+<img src="/img/Clonezilla-13.jpg" />
+
+2.14 选择备份方式的优先顺序
+
+<img src="/img/Clonezilla-14.jpg" />
+
+2.15 备份高级选项，默认即可
+
+<img src="/img/Clonezilla-15.jpg" />
+
+2.16 镜像压缩格式，默认
+
+<img src="/img/Clonezilla-16.jpg" />
+
+2.17 选择分割档大小
+
+<img src="/img/Clonezilla-17.jpg" />
+
+2.18 是否检查镜像
+
+<img src="/img/Clonezilla-18.jpg" />
+
+2.19 复制完毕后的动作，默认
+
+<img src="/img/Clonezilla-19.jpg" />
+
+2.20 确认是否执行备份操作，输入y进入备份，等待……
+
+<img src="/img/Clonezilla-20.jpg" />
+
+2.21 提醒完成后需要关机
+
+<img src="/img/Clonezilla-21.jpg" />
+
+2.22 选择关机
+
+<img src="/img/Clonezilla-22.jpg" />
+
 3、恢复Linux系统
 
 [百度网盘][百度网盘]
