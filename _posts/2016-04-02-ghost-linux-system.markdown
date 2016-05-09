@@ -26,16 +26,18 @@ clonezilla-live-2.4.5-23-amd64.iso clonezilla-live-20160210-wily-amd64.iso 区�
 
 1.3 制作启动盘
 
-    1.3.1 选择U盘
+1.3.1 选择U盘
     
-    1.3.2 选择克隆镜像clonezilla
+1.3.2 选择克隆镜像clonezilla
     
-    1.3.3 Live Mode 不用操作
+1.3.3 Live Mode 不用操作
     
-    1.3.4 勾选Format the key
+1.3.4 勾选Format the key
     
-    1.3.5 点击闪电标示，开始制作，直到出现Your LinuxLive Key is now up and ready!
+1.3.5 点击闪电标示，开始制作，直到出现Your LinuxLive Key is now up and ready!
     
+<img src="/img/live-usb-creator.jpg" />
+
 2、克隆Linux系统
 
 2.1 进入BIOS，选择U盘启动进入Clonezilla
