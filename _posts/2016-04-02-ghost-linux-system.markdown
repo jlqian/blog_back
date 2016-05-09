@@ -38,10 +38,10 @@ clonezilla-live-2.4.5-23-amd64.iso clonezilla-live-20160210-wily-amd64.iso 区�
     
 2、克隆Linux系统
 
-2.1  进入BIOS，选择U盘启动进入Clonezilla
+2.1 进入BIOS，选择U盘启动进入Clonezilla
 	<img src="/img/Clonezilla-1.jpg" />
-	
-2.2 
+2.2 选择语言
+	<img src="/img/Clonezilla-2.jpg" />
 	
 
 3、恢复Linux系统
