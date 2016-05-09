@@ -56,7 +56,7 @@ clonezilla-live-2.4.5-23-amd64.iso clonezilla-live-20160210-wily-amd64.iso 区�
 
 <img src="/img/Clonezilla-4.jpg" />
 
-2.5 选择备份或者还原
+2.5 选择镜像模式或者对拷
 
 <img src="/img/Clonezilla-5.jpg" />
 
