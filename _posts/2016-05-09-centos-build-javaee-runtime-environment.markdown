@@ -195,7 +195,7 @@ vim /etc/profile
 JAVA_HOME=/usr/local/jdk1.6.0_45
 CATALINA_HOME=/usr/local/apache-tomcat-7.0.67
 MYSQL_HOME=/usr/local/mysql
-NGINX_HOME=/usr/local/nginx-1.9.9
+NGINX_HOME=/usr/local/nginx
 PATH=$JAVA_HOME/bin:$CATALINA_HOME/bin:$MYSQL_HOME/bin:$NGINX_HOME/sbin:$PATH
 export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL JAVA_HOME CATALINA_HOME MYSQL_HOME NGINX_HOME
 #重新加载环境变量配置文件
