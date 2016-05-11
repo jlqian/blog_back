@@ -48,7 +48,7 @@ vim httpd.conf
 #修改默认端口号：Listen 80（Nginx端口号冲突）
 #为Listen 81（SELinux开放 80, 81, 443, 488, 8008, 8009, 8443, 9000）
 #增加：
-ServerName 12.0.0.1:81
+ServerName 127.0.0.1:81
 {% endhighlight %}
 
 5.修改Nginx配置文件
