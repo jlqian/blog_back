@@ -58,60 +58,60 @@ cp ./objs/nginx /usr/local/nginx/sbin/ #覆盖二进制文件
 2.1生成根证书
 {% highlight c %}
 OpenSSL> req -x509 -nodes -days 365 -newkey rsa:2048 -keyout root-key.key -out root-cert.pem #无密码，需要密码去掉参数 -nodes
-#Generating a 2048 bit RSA private key
-#...+++
-#............+++
-#writing new private key to 'root-key.key'
-#-----
-#You are about to be asked to enter information that will be incorporated
-#into your certificate request.
-#What you are about to enter is what is called a Distinguished Name or a DN.
-#There are quite a few fields but you can leave some blank
-#For some fields there will be a default value,
-#If you enter '.', the field will be left blank.
-#-----
-#Country Name (2 letter code) [AU]:CN
-#State or Province Name (full name) [Some-State]:
-#Locality Name (eg, city) []:
-#Organization Name (eg, company) [Internet Widgits Pty Ltd]:CFCA
-#Organizational Unit Name (eg, section) []:
-#Common Name (e.g. server FQDN or YOUR name) []:
-#Email Address []:
+Generating a 2048 bit RSA private key
+...+++
+............+++
+writing new private key to 'root-key.key'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:CN
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:CFCA
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:
+Email Address []:
 {% endhighlight %}
 
 2.2生成用户私钥
 {% highlight c %}
 OpenSSL> genrsa -out user-key.key 2048
-#Generating RSA private key, 2048 bit long modulus
-#................................................................................
-#.............................................................................+++
-#
-#................................................+++
-#e is 65537 (0x10001)
+Generating RSA private key, 2048 bit long modulus
+................................................................................
+.............................................................................+++
+
+................................................+++
+e is 65537 (0x10001)
 {% endhighlight %}
 
 2.3生成用户证书请求文件
 {% highlight c %}
 OpenSSL> req -new -out user-req.csr -key user-key.key
-#You are about to be asked to enter information that will be incorporated
-#into your certificate request.
-#What you are about to enter is what is called a Distinguished Name or a DN.
-#There are quite a few fields but you can leave some blank
-#For some fields there will be a default value,
-#If you enter '.', the field will be left blank.
-#-----
-#Country Name (2 letter code) [AU]:CN
-#State or Province Name (full name) [Some-State]:
-#Locality Name (eg, city) []:
-#Organization Name (eg, company) [Internet Widgits Pty Ltd]:YHST
-#Organizational Unit Name (eg, section) []:
-#Common Name (e.g. server FQDN or YOUR name) []:LOCALHOST
-#Email Address []:
-#
-#Please enter the following 'extra' attributes
-#to be sent with your certificate request
-#A challenge password []:
-#An optional company name []:
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:CN
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:YHST
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:LOCALHOST
+Email Address []:
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
 {% endhighlight %}
 
 注：Common Name 为网站域名，不能使用IP地址，测试的话，使用LOCALHOST
@@ -119,9 +119,9 @@ OpenSSL> req -new -out user-req.csr -key user-key.key
 2.4为用户颁发证书
 {% highlight c %}
 OpenSSL> x509 -req -in user-req.csr -out user-cert.cer -CA root-cert.cer -CAkey root-key.key -CAcreateserial -days 365
-#Signature ok
-#subject=/C=CN/ST=Some-State/O=YHST
-#Getting CA Private Key
+Signature ok
+subject=/C=CN/ST=Some-State/O=YHST
+Getting CA Private Key
 {% endhighlight %}
 
 3.Nginx配置反向代理
