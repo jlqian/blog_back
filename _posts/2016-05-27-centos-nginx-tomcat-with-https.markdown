@@ -111,11 +111,11 @@ vim nginx.conf
 
 注：将上一步生成的证书放到/usr/local/nginx/conf目录下
 
-5.浏览器端安装证书
+4.浏览器端安装证书
 
 备注：
 
-6.Https直接访问Tomcat如何配置：
+5.Https直接访问Tomcat如何配置：
 {% highlight xml %}
     <Connector port="8443"
                maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
