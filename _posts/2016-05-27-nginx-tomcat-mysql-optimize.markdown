@@ -6,25 +6,27 @@ categories: jekyll update
 ---
 
 #1.Nginx优化
+
+##高层的配置
 {% highlight c %}
-
-//高层的配置
-
 worker_processes  2;
 worker_rlimit_nofile 1000000;
 #worker_processes 定义了nginx对外提供web服务时的worker进程数。最优值取决于许多因素，包括（但不限于）CPU核的数量、存储数据的硬盘数量及负载模式。不能确定的时候，将其设置为可用的CPU内核数将是一个好的开始（设置为“auto”将尝试自动检测它）。
 #worker_rlimit_nofile 更改worker进程的最大打开文件数限制。如果没设置的话，这个值为操作系统的限制。设置后你的操作系统和Nginx可以处理比“ulimit -a”更多的文件，所以把这个值设高，这样nginx就不会有“too many open files”问题了。
+{% endhighlight %}
 
-//Events模块
-
+##Events模块
+{% highlight c %}
 worker_connections 65535; 
 multi_accept on; 
 use epoll; 
 #worker_connections 设置可由一个worker进程同时打开的最大连接数。如果设置了上面提到的worker_rlimit_nofile，我们可以将这个值设得很高。记住，最大客户数也由系统的可用socket连接数限制（~ 64K），所以设置不切实际的高没什么好处。
 #multi_accept 告诉nginx收到一个新连接通知后接受尽可能多的连接。
 #use 设置用于复用客户端线程的轮询方法。如果你使用Linux 2.6+，你应该使用epoll。如果你使用*BSD，你应该使用kqueue。值得注意的是如果你不知道Nginx该使用哪种轮询方法的话，它会选择一个最适合你操作系统的）
+{% endhighlight %}
 
-//HTTP 模块
+##HTTP 模块
+{% highlight c %}
 sendfile        on;
 access_log 		off; 
 error_log 		logs/error.log crit; 
@@ -42,6 +44,7 @@ open_file_cache_min_uses 2;
 {% endhighlight %}
 
 #2.Tomcat优化
+
 ##apache-tomcat/bin/catalina.sh
 {% highlight c %}
 
@@ -55,6 +58,7 @@ JAVA_OPTS="-Xms4096m -Xmx4096m -Xss512K -XX:PermSize=2048m -XX:MaxPermSize=2048m
 {% endhighlight %}
 
 ##apache-tomcat/conf/server.xml
+
 ###线程池配置
 {% highlight xml %}
 
@@ -104,4 +108,3 @@ myisam_sort_buffer_size = 8M
 #myisam_sort_buffer_size MyISAM设置恢复表之时使用的缓冲区的尺寸，当在REPAIR TABLE或用CREATE INDEX创建索引或ALTER TABLE过程中排序 MyISAM索引分配的缓冲区
 
 {% endhighlight %}
-
