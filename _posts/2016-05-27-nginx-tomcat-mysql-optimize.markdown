@@ -48,12 +48,12 @@ open_file_cache_min_uses 2;
 ##apache-tomcat/bin/catalina.sh
 {% highlight c %}
 
-JAVA_OPTS="-Xms4096m -Xmx4096m -Xss512K -XX:PermSize=2048m -XX:MaxPermSize=2048m"
-#-Xms – 指定初始化时化的栈内存
-#-Xmx – 指定最大栈内存
-#-Xss – 指定每个线程的stack大小
-#-Xms – 指定初始化时化的堆内存
-#-Xmx – 指定最大堆内存
+JAVA_OPTS="-Xms2048m -Xmx2048m -Xss512K -XX:PermSize=1024m -XX:MaxPermSize=1024m"
+#-Xms – 指定初始化时化的堆大小
+#-Xmx – 指定最大堆大小:对应的异常为:OutOfMemoryError
+#-Xss – 指定每个线程的stack(栈)大小，对应的异常为:StackOverflowError OutOfMemoryError
+#-PermSize – 指定初始化时化的非堆（方法区）大小
+#-MaxPermSize – 指定最大非堆（方法区）大小（默认为64M）:对应的异常为:OutOfMemoryError
 
 {% endhighlight %}
 
@@ -66,10 +66,10 @@ JAVA_OPTS="-Xms4096m -Xmx4096m -Xss512K -XX:PermSize=2048m -XX:MaxPermSize=2048m
 enableLookups="false" connectionTimeout="20000" redirectPort="8443" URIEncoding="UTF-8"/>
 
 <--
-maxThreads="1000"       	最大线程数
+maxThreads="1000"       	最大线程数,Tomcat可设置的最大线程数为2000
 minSpareThreads="500"		初始化时创建的线程数
 maxSpareThreads="800"		最大空闲数，一旦创建的线程超过这个值，Tomcat就会关闭不再需要的socket线程
-acceptCount="2000"			指定当所有可以使用的处理请求的线程数都被使用时，可以放到处理队列中的请求数，超过这个数的请求将不予处理
+acceptCount="500"			指定当所有可以使用的处理请求的线程数都被使用时，可以放到处理队列中的请求数，超过这个数的请求将不予处理
 enableLookups="false"		是否反查域名，取值为：true或false。为了提高处理能力，应设置为false
 connnectionTimeout="20000"	网络连接超时，单位：毫秒。设置为0表示永不超时，这样设置有隐患的，默认20000毫秒。
 URIEncoding="UTF-8"			不属于优化，避免GET请求乱码
