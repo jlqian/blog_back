@@ -61,7 +61,7 @@ JavaEE项目中，对于静态资源如：html css js img等资源，通过http�
 	}
 {% endhighlight %}
 
-1.2静态资源请求动态数据
+### 1.2静态资源请求动态数据
 
 使用Ajax请求https跨域数据(jQuery版)
 {% highlight javascript %}
@@ -82,11 +82,11 @@ JavaEE项目中，对于静态资源如：html css js img等资源，通过http�
 	});
 {% endhighlight %}
 
-上面的例子就是发送一个跨域请求，withCredentials: true目的是跨域请求维持会话（带上JESSIONID的COOKIE）;crossDomain: true: 跨域时默认会加上，为了显示表明这是个跨域请求。
+> 上面的例子就是发送一个跨域请求，withCredentials: true目的是跨域请求维持会话（带上JESSIONID的COOKIE）;crossDomain: true: 跨域时默认会加上，为了显示表明这是个跨域请求。
 
-2.动态资源
+## 2.动态资源
 
-2.1Nginx配置，配置端口为443的Server
+### 2.1Nginx配置，配置端口为443的Server
 {% highlight shell %}
 	server {
 	
@@ -115,11 +115,11 @@ JavaEE项目中，对于静态资源如：html css js img等资源，通过http�
 	}
 {% endhighlight %}
 
-2.2返回动态资源，需要添加额外响应头
+### 2.2返回动态资源，需要添加额外响应头
 
 对于动态资源，在跨域请求获取时，需要加上响应头：Access-Control-Allow-Origin，只加上这个响应头还不够，维持会话需要需要js发送过来的Credentials，所以需要Access-Control-Allow-Credentials头，响应头既可以在java代码中添加，也可以在Nginx配置中添加。
 
-2.2.1Java代码中添加
+#### 2.2.1Java代码中添加
 
 可以通过springmvc的拦截器进行添加，创建拦截器AllowCrossDomainInterceptor
 {% highlight java %}
@@ -159,7 +159,7 @@ JavaEE项目中，对于静态资源如：html css js img等资源，通过http�
 	  </mvc:interceptors>
 {% endhighlight %}
 
-2.2.2在Nginx中配置
+#### 2.2.2在Nginx中配置
 {% highlight shell %}
 	location /java/ {
 		proxy_pass http://127.0.0.1:8080;
