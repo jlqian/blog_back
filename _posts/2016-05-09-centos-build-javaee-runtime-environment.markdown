@@ -9,8 +9,8 @@ categories: jekyll update
 
 对于CentOS的安装不再叙述，采取最小化安装
 
-1.设置静态IP地址，允许远程登录
-{% highlight c %}
+## 1.设置静态IP地址，允许远程登录
+{% highlight shell %}
 #1.1设置静态IP
 cd  /etc/sysconfig/network-scripts/
 vi ifcfg-eth0 
@@ -34,8 +34,8 @@ service network restart
 #1.4防火墙默认开启22端口，可根据IP直接远程登录
 {% endhighlight %}
 
-2.建立本地yum源
-{% highlight c %}
+## 2.建立本地yum源
+{% highlight shell %}
 #2.1修改Base库名称，使其不再生效
 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
 #2.2修改CentOS-Media.repo
@@ -49,30 +49,30 @@ mkdir /media/CentOS/
 mount /dev/cdrom /media/CentOS/
 {% endhighlight %}
 
-3.安装vim编辑器
-{% highlight c %}
+## 3.安装vim编辑器
+{% highlight shell %}
 yum install vim
 {% endhighlight %}
 
-4.由于root权限太大，首先创建用户：
-{% highlight c %}
+## 4.由于root权限太大，首先创建用户：
+{% highlight shell %}
 useradd jlqian
 #默认会创建用户主目录
 {% endhighlight %}
 
 修改创建用户的密码
-{% highlight c %}
+{% highlight shell %}
 passwd jlqian
 #输入两遍密码即可
 {% endhighlight %}
 
-5.安装lrzsz，方便与windows上传下载文件
-{% highlight c %}
+## 5.安装lrzsz，方便与windows上传下载文件
+{% highlight shell %}
 yum install lrzsz
 {% endhighlight %}
 
-6.安装JDK
-{% highlight c %}
+## 6.安装JDK
+{% highlight shell %}
 #6.1上传JDK包
 cd /usr/local/
 rz #选择JDK安装包
@@ -89,8 +89,8 @@ export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL JAVA_HOME
 source /etc/profile
 {% endhighlight %}
 
-7.安装Tomcat
-{% highlight c %}
+## 7.安装Tomcat
+{% highlight shell %}
 #7.1上传Tomcat包
 cd /usr/local/
 rz #选择Tomcat安装包
@@ -108,8 +108,8 @@ export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL JAVA_HOME CATALINA_H
 source /etc/profile
 {% endhighlight %}
 
-8.安装MySQL
-{% highlight c %}
+## 8.安装MySQL
+{% highlight shell %}
 #8.1上传MySQL包
 cd /usr/local/
 rz #选择MySQL安装包
@@ -171,8 +171,8 @@ mysql> exit
 service mysql.server restart
 {% endhighlight %}
 
-9.安装Nginx
-{% highlight c %}
+## 9.安装Nginx
+{% highlight shell %}
 #9.1上传Nginx包
 cd /usr/local/
 rz #选择Nginx安装包
