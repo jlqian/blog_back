@@ -24,21 +24,24 @@ Sonatype使用了JIRA来管理流程，需要创建一个issue，用于审核项
 <img src="/img/2016-11-20/issue_details.jpg" />
 
 由于时区不同，审核时间在晚上，所以第二天我们会看到审核结果
+
 <img src="/img/2016-11-20/domain_response.jpg" />
+
 询问是否域名属于自己，回复Yes , of course，会收到审核通过的回复
+
 <img src="/img/2016-11-20/configuration_prepared.jpg" />
 
 	
 ## 3.使用 GPG 生成密钥对
 
-###3.1安装密钥对生成软件
+### 3.1安装密钥对生成软件
 
 Windows下可以通过Gpg4win-Vanilla 软件来生成密钥对，下载地址为：https://www.gpg4win.org/download.html
 <img src="/img/2016-11-20/gunpg.jpg" />
 
 Linux下直接安装gpg软件包就行。
 
-###3.2生成密钥
+### 3.2生成密钥
 
 在命令行模式下：
 {% highlight shell %}
@@ -111,7 +114,7 @@ uid       [ultimate] qianjl <qianjl.cn@gmail.com>
 sub   2048R/F588D38C 2016-11-20
 {% endhighlight %}
 
-###3.3上传公钥
+### 3.3上传公钥
 {% highlight shell %}
 gpg --keyserver hkp://pool.sks-keyservers.net --send-keys 616D288C
 {% endhighlight %}
@@ -127,7 +130,7 @@ gpg --list-keys
 
 此后，可使用本地的私钥来对上传构件进行数字签名，而下载该构件的用户可通过上传的公钥来验证签名，也就是说，大家可以验证这个构件是否由本人上传的，因为有可能该构件被坏人给篡改了。
 
-###3.4查询公钥是否发布成功
+### 3.4查询公钥是否发布成功
 {% highlight shell %}
 gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 616D288C
 {% endhighlight %}
@@ -139,9 +142,9 @@ gpg: Total number processed: 1
 gpg:              unchanged: 1
 {% endhighlight %}
 
-##4.Maven配置文件
+## 4.Maven配置文件
 
-###4.1配置settings.xml文件
+### 4.1配置settings.xml文件
 {% highlight xml %}
 <servers>
     <server>
@@ -153,7 +156,7 @@ gpg:              unchanged: 1
 {% endhighlight %}
 这里的id是将来要在pom.xml里面使用的，所以务必记好，用户名和密码就是在Sonatype上面注册的用户名和密码。
 
-###4.2pom.xml文件
+### 4.2pom.xml文件
 {% highlight xml %}
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -273,14 +276,14 @@ gpg:              unchanged: 1
 </project>
 {% endhighlight %}
 
-##5.上传
+## 5.上传
 {% highlight xml %}
 mvn deploy
 {% endhighlight %}
 上传时需要输入密码，会弹出密码输入框，输入之前使用GunPG是输入的密码
 
 
-###5.1上传有可能出现问题，通过插件获取问题详情：
+### 5.1上传有可能出现问题，通过插件获取问题详情：
 {% highlight xml %}
 <plugin>
     <groupId>org.sonatype.plugins</groupId>
@@ -298,17 +301,20 @@ mvn deploy
 
 表明中央仓库没有赋予当前登录仓库的用户权限，需要在Jira提出，他们会赋予用户权限
 
-##6.发布
+## 6.发布
 登陆：https://oss.sonatype.org
+
 在左侧菜单选择：Staging Repositories
+
 <img src="/img/2016-11-20/staging_repositories.jpg" />
 
 搜索自己要发布的项目：
+
 <img src="/img/2016-11-20/repositories_search.jpg" />
 
 选中要发布的项目，Close，刷新，如果下方的校验都通过，就可以点击Release按钮，进行项目发布。
 
-##7.通知sonatype的工作人员关闭issue
+## 7.通知sonatype的工作人员关闭issue
 
 回到issue系统，找到你的那个申请发布构件的issue，在下面回复工作人员，说明构件已经发布，待工作人员确认后，会关闭这个issue，如：My first release was promoted and is ready to be synced ,thank you !
 
@@ -320,9 +326,10 @@ mvn deploy
 
 3. http://repo1.maven.org/maven2（Maven插件使用地址）
 
-##8.同一个groupId发布其它构件
+## 8.同一个groupId发布其它构件
 
 执行4、5、6步骤即可。
+
 
 
 [github][github]
